@@ -1,0 +1,8 @@
+Bij opdracht 5 kreeg ik een error bij de stap "Add RouterOutlet", ik kon het command ng generate module app-routing --flat --module=app niet uitvoeren. Hierdoor werd het component niet goed ingesteld.
+
+Ook de volgende fix werkte niet:
+"The RouterOutlet is one of the router directives that became available to the AppComponent because AppModule imports AppRoutingModule which exported RouterModule.
+The ng generate command you ran at the start of this tutorial added this import because of the --module=app flag.
+If you manually created app-routing.module.ts or used a tool other than the CLI to do so, you'll need to import AppRoutingModule into app.module.ts and add it to the imports array of the NgModule."
+
+Ik heb het opgelost door de example code te gebruiken, want de ng generate command mocht niet, hierdoor kon ik het component anders niet gebruiken.
