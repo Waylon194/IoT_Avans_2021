@@ -1,0 +1,19 @@
+<h3>Eindopdracht</h3>
+<form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="naam">
+      Naam
+    </label>
+    <input id="naam" type="text" formControlName="naam">
+  </div>
+
+  <div>
+    <label for="bedrag">
+      Bedrag (in €)
+    </label>
+    <input id="bedrag" type="text" formControlName="bedrag">
+  </div>
+
+  <button class="button" type="submit">Betaal</button>
+</form>
