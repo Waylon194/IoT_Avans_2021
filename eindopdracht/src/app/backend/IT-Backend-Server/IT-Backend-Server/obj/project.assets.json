@@ -139,39 +139,6 @@
           }
         }
       },
-      "MQTTnet/3.0.15": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0/MQTTnet.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/MQTTnet.dll": {}
-        }
-      },
-      "MQTTnet.AspNetCore/3.0.15": {
-        "type": "package",
-        "dependencies": {
-          "MQTTnet": "3.0.15"
-        },
-        "compile": {
-          "lib/net5.0/MQTTnet.AspNetCore.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/MQTTnet.AspNetCore.dll": {}
-        }
-      },
-      "MQTTnet.Extensions.ManagedClient/3.0.15": {
-        "type": "package",
-        "dependencies": {
-          "MQTTnet": "3.0.15"
-        },
-        "compile": {
-          "lib/net5.0/MQTTnet.Extensions.ManagedClient.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/MQTTnet.Extensions.ManagedClient.dll": {}
-        }
-      },
       "SharpCompress/0.23.0": {
         "type": "package",
         "dependencies": {
@@ -476,77 +443,6 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
-    "MQTTnet/3.0.15": {
-      "sha512": "It8ZtqJdFXQNQabV1ZaOgtlWyk922/uFLChq2EgIDypd5zUIE8z72O10k0gYM4Zq9LLYl34Ex0kcu0uxu+PA+g==",
-      "type": "package",
-      "path": "mqttnet/3.0.15",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "images/Logo_128x128.png",
-        "lib/net452/MQTTnet.dll",
-        "lib/net461/MQTTnet.dll",
-        "lib/net5.0/MQTTnet.deps.json",
-        "lib/net5.0/MQTTnet.dll",
-        "lib/netcoreapp3.1/MQTTnet.deps.json",
-        "lib/netcoreapp3.1/MQTTnet.dll",
-        "lib/netstandard1.3/MQTTnet.deps.json",
-        "lib/netstandard1.3/MQTTnet.dll",
-        "lib/netstandard2.0/MQTTnet.deps.json",
-        "lib/netstandard2.0/MQTTnet.dll",
-        "lib/netstandard2.1/MQTTnet.deps.json",
-        "lib/netstandard2.1/MQTTnet.dll",
-        "lib/uap10.0/MQTTnet.dll",
-        "lib/uap10.0/MQTTnet.pri",
-        "mqttnet.3.0.15.nupkg.sha512",
-        "mqttnet.nuspec"
-      ]
-    },
-    "MQTTnet.AspNetCore/3.0.15": {
-      "sha512": "8ONuum4ewjfNsotPFXUs26dZp4e0Per6+M9MGWuy/bW624c2wmNSqFCGvLB4Ib4421Mt9ccqbZzSrRzAmlSjtg==",
-      "type": "package",
-      "path": "mqttnet.aspnetcore/3.0.15",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "images/Logo_128x128.png",
-        "lib/net5.0/MQTTnet.AspNetCore.deps.json",
-        "lib/net5.0/MQTTnet.AspNetCore.dll",
-        "lib/netcoreapp3.1/MQTTnet.AspNetCore.deps.json",
-        "lib/netcoreapp3.1/MQTTnet.AspNetCore.dll",
-        "lib/netstandard2.0/MQTTnet.AspNetCore.deps.json",
-        "lib/netstandard2.0/MQTTnet.AspNetCore.dll",
-        "mqttnet.aspnetcore.3.0.15.nupkg.sha512",
-        "mqttnet.aspnetcore.nuspec"
-      ]
-    },
-    "MQTTnet.Extensions.ManagedClient/3.0.15": {
-      "sha512": "QySgOyruOc+oLedf2bQ91VXPdNuXNcGR+jJ1WKNC72/TdVxE/8NnXxEFPHTUJTkvjOqSVde41d4nEVikbZU/nA==",
-      "type": "package",
-      "path": "mqttnet.extensions.managedclient/3.0.15",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "images/Logo_128x128.png",
-        "lib/net452/MQTTnet.Extensions.ManagedClient.dll",
-        "lib/net461/MQTTnet.Extensions.ManagedClient.dll",
-        "lib/net5.0/MQTTnet.Extensions.ManagedClient.deps.json",
-        "lib/net5.0/MQTTnet.Extensions.ManagedClient.dll",
-        "lib/netstandard1.3/MQTTnet.Extensions.ManagedClient.deps.json",
-        "lib/netstandard1.3/MQTTnet.Extensions.ManagedClient.dll",
-        "lib/netstandard2.0/MQTTnet.Extensions.ManagedClient.deps.json",
-        "lib/netstandard2.0/MQTTnet.Extensions.ManagedClient.dll",
-        "lib/netstandard2.1/MQTTnet.Extensions.ManagedClient.deps.json",
-        "lib/netstandard2.1/MQTTnet.Extensions.ManagedClient.dll",
-        "lib/uap10.0/MQTTnet.Extensions.ManagedClient.dll",
-        "lib/uap10.0/MQTTnet.Extensions.ManagedClient.pri",
-        "mqttnet.extensions.managedclient.3.0.15.nupkg.sha512",
-        "mqttnet.extensions.managedclient.nuspec"
-      ]
-    },
     "SharpCompress/0.23.0": {
       "sha512": "HBbT47JHvNrsZX2dTBzUBOSzBt+EmIRGLIBkbxcP6Jef7DB4eFWQX5iHWV3Nj7hABFPCjISrZ8s0z72nF2zFHQ==",
       "type": "package",
@@ -736,9 +632,6 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "MQTTnet >= 3.0.15",
-      "MQTTnet.AspNetCore >= 3.0.15",
-      "MQTTnet.Extensions.ManagedClient >= 3.0.15",
       "MongoDB.Driver >= 2.12.0",
       "Swashbuckle.AspNetCore >= 6.0.7"
     ]
@@ -750,11 +643,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Studie\\IT - Internet Technologie\\Backend\\IWSN-Backend-Server\\IWSN-Backend-Server\\IT-Backend-Server.csproj",
+      "projectUniqueName": "E:\\Studie\\IT - Internet Technologie\\IoT_Avans_2021\\eindopdracht\\src\\app\\backend\\IT-Backend-Server\\IT-Backend-Server\\IT-Backend-Server.csproj",
       "projectName": "IT-Backend-Server",
-      "projectPath": "E:\\Studie\\IT - Internet Technologie\\Backend\\IWSN-Backend-Server\\IWSN-Backend-Server\\IT-Backend-Server.csproj",
+      "projectPath": "E:\\Studie\\IT - Internet Technologie\\IoT_Avans_2021\\eindopdracht\\src\\app\\backend\\IT-Backend-Server\\IT-Backend-Server\\IT-Backend-Server.csproj",
       "packagesPath": "C:\\Users\\finni\\.nuget\\packages\\",
-      "outputPath": "E:\\Studie\\IT - Internet Technologie\\Backend\\IWSN-Backend-Server\\IWSN-Backend-Server\\obj\\",
+      "outputPath": "E:\\Studie\\IT - Internet Technologie\\IoT_Avans_2021\\eindopdracht\\src\\app\\backend\\IT-Backend-Server\\IT-Backend-Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -787,18 +680,6 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "MQTTnet": {
-            "target": "Package",
-            "version": "[3.0.15, )"
-          },
-          "MQTTnet.AspNetCore": {
-            "target": "Package",
-            "version": "[3.0.15, )"
-          },
-          "MQTTnet.Extensions.ManagedClient": {
-            "target": "Package",
-            "version": "[3.0.15, )"
-          },
           "MongoDB.Driver": {
             "target": "Package",
             "version": "[2.12.0, )"

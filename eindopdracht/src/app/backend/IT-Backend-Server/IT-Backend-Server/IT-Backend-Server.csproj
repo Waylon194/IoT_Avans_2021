@@ -2,14 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>IWSN_Backend_Server</RootNamespace>
+    <RootNamespace>IT_Backend_Server</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.12.0" />
-    <PackageReference Include="MQTTnet" Version="3.0.15" />
-    <PackageReference Include="MQTTnet.AspNetCore" Version="3.0.15" />
-    <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.0.15" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.7" />
   </ItemGroup>
 

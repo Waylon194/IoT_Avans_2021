@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z6miXk44iEIYhht7oMNgQ6YScZOHWIr91B+j6WohzJHylXteNXG0hDMtzF1uVFVrquB2W/WhxjLg2qgE8zoOjQ==",
+  "dgSpecHash": "gkDDggS77guzPWfbWasbhq8M4RhDorW3xk1MlQnJadYAO3Mlglxh+GfGlAvRTxr/nl4kbPKjf7/ez6VWz1ncmw==",
   "success": true,
-  "projectFilePath": "E:\\Studie\\IT - Internet Technologie\\Backend\\IWSN-Backend-Server\\IWSN-Backend-Server\\IT-Backend-Server.csproj",
+  "projectFilePath": "E:\\Studie\\IT - Internet Technologie\\IoT_Avans_2021\\eindopdracht\\src\\app\\backend\\IT-Backend-Server\\IT-Backend-Server\\IT-Backend-Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\finni\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\finni\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
@@ -12,9 +12,6 @@
     "C:\\Users\\finni\\.nuget\\packages\\mongodb.driver\\2.12.0\\mongodb.driver.2.12.0.nupkg.sha512",
     "C:\\Users\\finni\\.nuget\\packages\\mongodb.driver.core\\2.12.0\\mongodb.driver.core.2.12.0.nupkg.sha512",
     "C:\\Users\\finni\\.nuget\\packages\\mongodb.libmongocrypt\\1.2.0\\mongodb.libmongocrypt.1.2.0.nupkg.sha512",
-    "C:\\Users\\finni\\.nuget\\packages\\mqttnet\\3.0.15\\mqttnet.3.0.15.nupkg.sha512",
-    "C:\\Users\\finni\\.nuget\\packages\\mqttnet.aspnetcore\\3.0.15\\mqttnet.aspnetcore.3.0.15.nupkg.sha512",
-    "C:\\Users\\finni\\.nuget\\packages\\mqttnet.extensions.managedclient\\3.0.15\\mqttnet.extensions.managedclient.3.0.15.nupkg.sha512",
     "C:\\Users\\finni\\.nuget\\packages\\sharpcompress\\0.23.0\\sharpcompress.0.23.0.nupkg.sha512",
     "C:\\Users\\finni\\.nuget\\packages\\swashbuckle.aspnetcore\\6.0.7\\swashbuckle.aspnetcore.6.0.7.nupkg.sha512",
     "C:\\Users\\finni\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.0.7\\swashbuckle.aspnetcore.swagger.6.0.7.nupkg.sha512",
