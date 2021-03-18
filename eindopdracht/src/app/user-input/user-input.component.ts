@@ -6,14 +6,16 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
   templateUrl: './user-input.component.html',
   styleUrls: ['./user-input.component.scss']
 })
+
 export class UserInputComponent implements OnInit {
   checkoutForm = this.formBuilder.group({
     naam: '',
     bedrag: ''
   });
 
+  inputForm!: FormGroup;
+
   constructor(
-    public inputForm: FormGroup,
     private formBuilder: FormBuilder,
   ) { }
 
@@ -23,5 +25,6 @@ export class UserInputComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 }
