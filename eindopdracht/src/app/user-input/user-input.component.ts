@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 })
 
 export class UserInputComponent implements OnInit {
-  checkoutForm = this.formBuilder.group({
+  infoForm = this.formBuilder.group({
     naam: '',
     bedrag: ''
   });
@@ -20,8 +20,8 @@ export class UserInputComponent implements OnInit {
   ) { }
 
   onSubmit(): void {
-    console.warn('Je hebt betaald!', this.checkoutForm.value);
-    this.checkoutForm.reset();
+    console.warn('Je hebt betaald!', this.infoForm.value);
+    this.infoForm.reset();
   }
 
   ngOnInit(): void {
