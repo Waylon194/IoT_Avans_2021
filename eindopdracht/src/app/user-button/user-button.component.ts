@@ -17,8 +17,6 @@ export class UserButtonComponent implements OnInit {
     console.warn('Je hebt op Opnieuw geklikt!');
   }
 
-
   ngOnInit(): void {
   }
-
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-user-input',
@@ -8,20 +8,16 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 })
 
 export class UserInputComponent implements OnInit {
-  infoForm = this.formBuilder.group({
-    naam: '',
-    bedrag: ''
+  inputForm = new FormGroup({
+    naam: new FormControl(''),
+    bedrag: new FormControl(''),
   });
 
-  inputForm!: FormGroup;
-
-  constructor(
-    private formBuilder: FormBuilder,
-  ) { }
+  constructor() { }
 
   onSubmit(): void {
-    console.warn('Je hebt betaald!', this.infoForm.value);
-    this.infoForm.reset();
+    console.warn('Je hebt betaald!', this.inputForm.value);
+    this.inputForm.reset();
   }
 
   ngOnInit(): void {

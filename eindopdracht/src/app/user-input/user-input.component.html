@@ -1,22 +1,23 @@
 <h3>Eindopdracht - </h3>
 
 <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
-    <section>
-        <label for="naam">Naam: </label>
-        <div class="row">
-            <input id="naam" type="text" placeholder="Uw naam" formControlName="naam">
-        </div>
-    </section>
-    <br>
-    <section>
-        <label for="bedrag">Bedrag (in €): </label>
-        <div class="row">
-            <input id="bedrag" type="number" value="0" formControlName="bedrag">
-        </div>
-    </section>
-    <br>
-    <section>
-        <button mat-flat-button color="primary" class="button" type="submit">Betaal</button>
-    </section>
-    <br>
+    <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Naam:</mat-label>
+          <input matInput id="naam" type="text" formControlName="naam" placeholder="Uw naam" >
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hoe mensen je roepen.</mat-hint>
+        </mat-form-field>
+     </p>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Bedrag</mat-label>
+        <input matInput id="bedrag" type="number" min="0.01" step="0.01" formControlName="bedrag" class="example-right-align">
+        <span matPrefix>€&nbsp;</span>
+        <span matSuffix>&nbsp;,-</span>
+    </mat-form-field>
+
+    <p>
+    <button mat-flat-button color="primary" class="button" type="submit">Betaal</button>
+    </p>
 </form>
