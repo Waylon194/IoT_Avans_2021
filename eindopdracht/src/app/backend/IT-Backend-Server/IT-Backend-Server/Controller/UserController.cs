@@ -24,7 +24,7 @@ namespace IWSN_Backend_Server.Controllers
         }
 
         // get all the available users - async
-        [Route( DBRouteSettings.UsersSubRouteName + "/all" )]
+        [Route("all" )]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserDBModel>>> GetAllUsers()
         {
@@ -33,16 +33,16 @@ namespace IWSN_Backend_Server.Controllers
         }
 
         // get a single user by MongoDB assign Id
-        [Route(DBRouteSettings.UsersSubRouteName + "/{id}")]
+        [Route("{name}")]
         [HttpGet]
-        public async Task<ActionResult<UserDBModel>> GetById(string id)
+        public async Task<ActionResult<UserDBModel>> GetById(string name)
         {
-            var user = await this._AccountService.GetAccountByNameAsync(id);
+            var user = await this._AccountService.GetAccountByNameAsync(name);
             return user;
         }
 
         // Create a single user document in MongoDB - works but throws an error? -> System.InvalidOperationException: No route matches the supplied values.
-        [Route(DBRouteSettings.UsersSubRouteName + "/create")]
+        [Route("create")]
         [HttpPost]
         public async Task<ActionResult<UserDBModel>> CreateUser([FromBody]UserDBModel user)
         {
@@ -51,7 +51,7 @@ namespace IWSN_Backend_Server.Controllers
         }
 
         // 
-        [Route(DBRouteSettings.UsersSubRouteName + "/update/{name}")]
+        [Route("update/{name}")]
         [HttpPut]
         public async Task<IActionResult> Update(string name, [FromBody]UserDBModel user)
         {
@@ -66,7 +66,7 @@ namespace IWSN_Backend_Server.Controllers
         }
         
         //
-        [Route(DBRouteSettings.UsersSubRouteName + "/delete/{id}")]
+        [Route("delete/{id}")]
         [HttpDelete]
         public async Task<IActionResult> Delete(string id)
         {

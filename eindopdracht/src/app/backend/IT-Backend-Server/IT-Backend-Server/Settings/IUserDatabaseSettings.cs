@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace IWSN_Backend_Server.Model.Settings.Database
 {
-    public interface IUserDatabaseSettings
-    {
-        string DBCollectionName { get; set; }
-        string DBConnectionString { get; set; }
-        string DatabaseName { get; set; }
-    }
+  public interface IUserDatabaseSettings
+  {
+    string DBCollectionName { get; set; }
+    string DBConnectionString { get; set; }
+    string DatabaseName { get; set; }
+  }
 }
