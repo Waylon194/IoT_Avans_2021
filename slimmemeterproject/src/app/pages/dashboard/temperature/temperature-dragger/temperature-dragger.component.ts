@@ -32,7 +32,7 @@ export class TemperatureDraggerComponent implements AfterViewInit, OnChanges {
   @Input() thumbBg;
   @Input() thumbBorderColor;
   @Input() maxLeap = 0.4;
-
+  
   value = 50;
   @Output() valueChange = new EventEmitter<Number>();
   @Input('value') set setValue(value) {
@@ -44,17 +44,6 @@ export class TemperatureDraggerComponent implements AfterViewInit, OnChanges {
   @Input() step = 0.1;
 
   @Output() power = new EventEmitter<boolean>();
-
-  @HostListener('window:mouseup', ['$event'])
-  onMouseUp(event) {
-    this.recalculateValue(event);
-    this.isMouseDown = false;
-  }
-
-  @HostListener('window:mousemove', ['$event'])
-  onMouseMove(event: MouseEvent) {
-    this.recalculateValue(event);
-  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -106,27 +95,6 @@ export class TemperatureDraggerComponent implements AfterViewInit, OnChanges {
     if (this.init) {
       this.invalidate();
     }
-  }
-
-  mouseDown(event) {
-    this.isMouseDown = true;
-    if (!this.off) {
-      this.recalculateValue(event, true);
-    }
-  }
-
-  switchPower() {
-    this.off = !this.off;
-    this.power.emit(!this.off);
-
-    if (this.off) {
-      this.oldValue = this.value;
-      this.value = this.min;
-    } else {
-      this.value = this.oldValue;
-    }
-
-    this.invalidatePinPosition();
   }
 
   getUrlPath(id: string) {

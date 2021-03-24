@@ -13,10 +13,7 @@ export class TemperatureComponent implements OnDestroy {
   private alive = true;
   temperatureData: Temperature;
   temperature: number;
-  temperatureOff = false;
-  temperatureMode = 'cool';
   theme: any;
-  themeSubscription: any;
 
   constructor(private themeService: NbThemeService,
               private temperatureHumidityService: TemperatureHumidityData) {
@@ -29,10 +26,10 @@ export class TemperatureComponent implements OnDestroy {
     forkJoin(
       this.temperatureHumidityService.getTemperatureData(),
     )
-      .subscribe(([temperatureData]: [Temperature]) => {
-        this.temperatureData = temperatureData;
-        this.temperature = this.temperatureData.value;
-      });
+    .subscribe(([temperatureData]: [Temperature]) => {
+      this.temperatureData = temperatureData;
+      this.temperature = this.temperatureData.value;
+    });
   }
 
   ngOnDestroy() {
