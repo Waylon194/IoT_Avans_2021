@@ -1,0 +1,16 @@
+<nb-card class="cards-container">
+  <nb-card size="large" class="chart-card">
+    <nb-card-header>
+      <span class="stats">
+        <span class="caption">Verbruikt</span>
+        <span>816 <span class="caption">kWh</span></span>
+      </span>
+      <span class="stats">
+        <span class="caption">Uitgegeven</span>
+        <span>291 <span class="caption">EUR</span></span>
+      </span>
+    </nb-card-header>
+
+    <ngx-electricity-chart [data]="chartData"></ngx-electricity-chart>
+  </nb-card>
+</nb-card>
