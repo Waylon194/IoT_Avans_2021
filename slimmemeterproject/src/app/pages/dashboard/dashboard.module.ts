@@ -20,6 +20,7 @@ import { ElectricityComponent } from './electricity/electricity.component';
 import { ElectricityChartComponent } from './electricity/electricity-chart/electricity-chart.component';
 import { WeatherComponent } from './weather/weather.component';
 import { SolarComponent } from './solar/solar.component';
+import { ChargerComponent } from './charger/charger.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -46,6 +47,7 @@ import { FormsModule } from '@angular/forms';
     ElectricityChartComponent,
     WeatherComponent,
     SolarComponent,
+    ChargerComponent,
   ],
 })
 export class DashboardModule { }

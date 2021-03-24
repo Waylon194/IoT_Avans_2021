@@ -1,14 +1,14 @@
 <nb-card size="large">
   <nb-tabset fullWidth>
-    <nb-tab tabTitle="Verbruik">
+    <nb-tab tabTitle="Actueel verbruik">
       <div class="slider-container">
         <ngx-temperature-dragger [(value)]="temperature"
         [min]="temperatureData.min" [max]="temperatureData.max" [disableArcColor]="theme.arcEmpty"
         [fillColors]="theme.arcFill" [thumbBg]="theme.thumbBg" [thumbBorderColor]="theme.thumbBorder">
 
-          <div class="slider-value-container" [ngClass]="{ 'off': temperatureOff }">
+          <div class="slider-value-container">
             <div class="value temperature h1">
-              {{ temperatureOff ? '--' : (temperature | ngxRound) }}
+              {{ (temperature | ngxRound) }}
             </div>
             <div class="desc">
               kWh

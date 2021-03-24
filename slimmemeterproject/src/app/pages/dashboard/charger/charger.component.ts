@@ -5,23 +5,23 @@ import { NbThemeService } from '@nebular/theme';
 declare const echarts: any;
 
 @Component({
-  selector: 'ngx-solar',
-  styleUrls: ['./solar.component.scss'],
+  selector: 'ngx-charger',
+  styleUrls: ['./charger.component.scss'],
   template: `
     <nb-card size="tiny" class="solar-card">
-      <nb-card-header>Zonnepaneel Meter</nb-card-header>
+      <nb-card-header>Auto Oplader Meter</nb-card-header>
       <nb-card-body>
         <div echarts [options]="option" class="echart">
         </div>
         <div class="info">
           <div class="h4 value">0.000 kWh</div>
-          <div class="details subtitle-2"><span>van de</span> 5.000 kWh</div>
+          <div class="details subtitle-2"><span>van de</span> 2.000 kWh</div>
         </div>
       </nb-card-body>
     </nb-card>
   `,
 })
-export class SolarComponent implements AfterViewInit, OnDestroy {
+export class ChargerComponent implements AfterViewInit, OnDestroy {
 
   private value = 0;
 

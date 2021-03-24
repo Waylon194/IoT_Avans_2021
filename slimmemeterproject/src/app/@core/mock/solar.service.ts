@@ -4,7 +4,7 @@ import { SolarData } from '../data/solar';
 
 @Injectable()
 export class SolarService extends SolarData {
-  private value = 80;
+  private value = 0;
 
   getSolarData(): Observable<number> {
     return observableOf(this.value);
