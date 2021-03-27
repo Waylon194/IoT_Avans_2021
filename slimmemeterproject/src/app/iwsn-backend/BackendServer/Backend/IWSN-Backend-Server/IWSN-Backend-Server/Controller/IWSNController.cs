@@ -1,4 +1,5 @@
-﻿using IWSN_Backend_Server.Models.Database;
+﻿using IWSN_Backend_Server.Model.Sensor;
+using IWSN_Backend_Server.Models.Database;
 using IWSN_Backend_Server.Models.Settings.Class;
 using IWSN_Backend_Server.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -54,11 +55,12 @@ namespace IWSN_Backend_Server.Controllers.ControllerInstances
         // get all the available users - async
         [Route( "/lastest/solar")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MongoDBDatagramModel>>> GetLatestSolarMeasurement()
+        public async Task<ActionResult<SObject>> GetLatestSolarMeasurement()
         {
             var measurements = await this._SensorMeasurementService.GetAllAsync();
-            return measurements.ToList().Last();
+            return measurements.ToList().Last().Datagram.SolarPanel;
         }
 
+        // 
     }
 }

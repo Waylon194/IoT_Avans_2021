@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
 using IWSN_Backend_Server.Model.Sensor;
+using IWSN_Backend_Server.Model.Datagram;
 
 namespace IWSN_Backend_Server.Services
 {
@@ -21,7 +22,11 @@ namespace IWSN_Backend_Server.Services
     public class MongoDBService
     {
         private readonly IMongoCollection<MongoDBDatagramModel> _SensorMeasurementDBCollection;
+        
+        // parsers and processors
         private Parser _SmartMeterParser;
+        private TelegramProcessor processor;
+
         private static MongoDBService _Instance = null; // singleton instance object
 
         public static MongoDBService Instance
@@ -45,22 +50,23 @@ namespace IWSN_Backend_Server.Services
             // Assign the db values to the readonly value
             this._SensorMeasurementDBCollection = databaseData.GetCollection<MongoDBDatagramModel>(settings.DBCollectionName); // get the IMongoCollection object from the IMongoDatabase object
 
-            // create the parser
+            // Create the parser & processor
             this._SmartMeterParser = new Parser();
+            this.processor = new TelegramProcessor();
         }
 
         public void insertDatagramMeasurement(string json)
         {
             var datagramShell = JsonSerializer.Deserialize<DatagramShell>(json);
 
-            var result = this._SmartMeterParser.Parse(datagramShell.datagram.p1).Result.ToList();
+            var result = this._SmartMeterParser.Parse(datagramShell.datagram.p1).Result.ToList().First();
             Console.WriteLine();
 
             ProcessedDatagram pDatagram = new ProcessedDatagram();
-            pDatagram.ParsedTelegrams = result;
+            pDatagram.Telegram = processor.Process(result);
             pDatagram.Signature = datagramShell.datagram.signature;
-            pDatagram.S0 = datagramShell.datagram.s0;
-            pDatagram.S1 = datagramShell.datagram.s1;
+            pDatagram.CarCharger = datagramShell.datagram.s0;
+            pDatagram.SolarPanel = datagramShell.datagram.s1;
 
             this._SensorMeasurementDBCollection.InsertOneAsync(new MongoDBDatagramModelBuilder()
                 .SetMeasurementValue(pDatagram)
