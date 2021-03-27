@@ -27,7 +27,7 @@ namespace IWSN_Backend_Server.Controllers.ControllerInstances
 
         // ROUTE: .../iwsn/all
         // get all the available users - async
-        [Route( "/all" )]
+        [Route( "all" )]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MongoDBDatagramModel>>> GetAllMeasurements()
         {
@@ -37,7 +37,7 @@ namespace IWSN_Backend_Server.Controllers.ControllerInstances
 
         // ROUTE: .../iwsn/latest/all
         // get lastest measurements available bases on variable => LATEST_RANGE_ALLOWED defined as private attribute
-        [Route("/latest/all")]
+        [Route("latest/all")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MongoDBDatagramModel>>> GetLatestMeasurements()
         {
@@ -53,14 +53,12 @@ namespace IWSN_Backend_Server.Controllers.ControllerInstances
 
         // ROUTE: .../iwsn/latest/solar
         // get all the available users - async
-        [Route( "/lastest/solar")]
+        [Route( "lastest/solar")]
         [HttpGet]
         public async Task<ActionResult<SObject>> GetLatestSolarMeasurement()
         {
             var measurements = await this._SensorMeasurementService.GetAllAsync();
             return measurements.ToList().Last().Datagram.SolarPanel;
         }
-
-        // 
     }
 }
