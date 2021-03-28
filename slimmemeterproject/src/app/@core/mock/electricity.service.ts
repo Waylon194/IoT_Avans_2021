@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of as observableOf, Observable } from 'rxjs';
 import { Electricity, ElectricityChart, ElectricityData } from '../data/electricity';
+import { IwsnBackendService } from '../../iwsn-backend/iwsn-backend.service';
 
 @Injectable()
 export class ElectricityService extends ElectricityData {
@@ -30,8 +31,9 @@ export class ElectricityService extends ElectricityData {
 
   chartData: ElectricityChart[];
 
-  constructor() {
+  constructor(public iwsnBackendService: IwsnBackendService) {
     super();
+    this.iwsnBackendService.getMeasurements().subscribe(item => console.log(item));
     this.chartData = this.chartPoints.map((p, index) => ({
       //Creating of labels
       label: (index % 10 === 0) ? `${Math.round(index / 10)}` : '',
@@ -39,7 +41,7 @@ export class ElectricityService extends ElectricityData {
     }));
   }
 
-  //Not in use
+  //Not in use, but needed due to inheritance
   getListData(): Observable<Electricity[]> {
     return observableOf(this.listData);
   }

@@ -1,9 +1,7 @@
 ﻿using DsmrParser.Dsmr;
-using DsmrParser.Models;
 using IWSN_Backend_Server.Model.Builders;
 using IWSN_Backend_Server.Models.Database;
 using IWSN_Backend_Server.Models.Settings.Database;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -58,7 +56,6 @@ namespace IWSN_Backend_Server.Services
         public void insertDatagramMeasurement(string json)
         {
             var datagramShell = JsonSerializer.Deserialize<DatagramShell>(json);
-
             var result = this._SmartMeterParser.Parse(datagramShell.datagram.p1).Result.ToList().First();
             Console.WriteLine();
 
