@@ -1,23 +1,29 @@
-<h3>Eindopdracht - </h3>
-
 <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
     <p>
         <mat-form-field appearance="standard">
-          <mat-label>Naam:</mat-label>
-          <input matInput id="naam" type="text" formControlName="naam" placeholder="Uw naam" >
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          <mat-hint>Hoe mensen je roepen.</mat-hint>
+            <mat-label>Verstuurder:</mat-label>
+            <input matInput id="zender" formControlName="zender" type="text"  placeholder="Uw naam" required>
+            <mat-icon matSuffix>accessibility</mat-icon>
+            <mat-hint>De zender van de betaling</mat-hint>
         </mat-form-field>
-     </p>
-
-    <mat-form-field appearance="fill">
-        <mat-label>Bedrag</mat-label>
-        <input matInput id="bedrag" type="number" min="0.01" step="0.01" formControlName="bedrag" class="example-right-align">
-        <span matPrefix>€&nbsp;</span>
-        <span matSuffix>&nbsp;,-</span>
-    </mat-form-field>
-
-    <p>
-    <button mat-flat-button color="primary" class="button" type="submit">Betaal</button>
     </p>
+    <p>
+        <mat-form-field appearance="standard">
+            <mat-label>Ontvanger:</mat-label>
+            <input matInput id="ontvanger" formControlName="ontvanger" type="text"  placeholder="De naam van de onvanger" required>
+            <mat-icon matSuffix>accessibility</mat-icon>
+            <mat-hint>De ontvanger van de betaling</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="standard">
+            <mat-label>Bedrag:</mat-label>
+            <input matInput id="bedrag" formControlName="bedrag" type="number"  min="0.01" step="0.01"  placeholder="Het te betalen bedrag" required>
+            <mat-icon matSuffix>,- euro_symbol</mat-icon>
+            <mat-hint>Het te versturen bedrag</mat-hint>
+        </mat-form-field>
+    </p>
+    <button mat-flat-button color="primary" type="submit">Betaal</button>
+    &nbsp;
+    <button mat-flat-button color="accent"(click)="onReset()" type='button'>Reset</button>
 </form>

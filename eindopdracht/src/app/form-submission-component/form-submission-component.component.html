@@ -1,0 +1,14 @@
+<br>
+<div *ngIf='formSubmissionService.betalingen.length'>
+    <!-- If-else statement om verschillende text te laten zien met is/zijn -->
+    <div *ngIf="formSubmissionService.aantalBetalingen > 1; else elseBlock">
+        <p>In totaal zijn er {{ formSubmissionService.aantalBetalingen }} betalingen gedaan met een totaalbedrag van {{ formSubmissionService.totaalBedrag | currency:'EUR':'symbol-narrow':'1.2-2' }},-</p>
+    </div>
+    <ng-template #elseBlock>
+        <p>Er is in totaal {{ formSubmissionService.aantalBetalingen }} betaling gedaan met een totaalbedrag van {{ formSubmissionService.totaalBedrag | currency:'EUR':'symbol-narrow':'1.2-2' }},-</p>
+    </ng-template>
+    <h2>Ontvangen betalingen:</h2>
+    <div *ngFor='let betaling of formSubmissionService.betalingen'> {{betaling}} </div>
+    <br>
+</div>
+<br>
