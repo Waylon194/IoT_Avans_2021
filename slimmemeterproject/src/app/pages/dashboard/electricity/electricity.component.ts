@@ -29,7 +29,7 @@ export class ElectricityComponent implements OnDestroy {
         this.currentTheme = theme.name;
     });
 
-    console.log("Data recieved: " + backend_service.getMeasurements().subscribe(measurements=> this.measurements = measurements));
+    //console.log("Data recieved: " + backend_service.getMeasurements().subscribe(measurements=> this.measurements = measurements));
 
     forkJoin(
       this.electricityService.getChartData(),
