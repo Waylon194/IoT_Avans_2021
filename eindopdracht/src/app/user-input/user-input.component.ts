@@ -25,6 +25,7 @@ export class UserInputComponent implements OnInit {
     else{
       console.log("Zender, ontvanger of bedrag is null!");
     }
+    console.warn(this.inputForm.value);
   }
 
   //Reset knop voor de form

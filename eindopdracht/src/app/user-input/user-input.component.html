@@ -23,7 +23,7 @@
             <mat-hint>Het te versturen bedrag</mat-hint>
         </mat-form-field>
     </p>
-    <button mat-flat-button color="primary" type="submit">Betaal</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="!inputForm.valid">Betaal</button>
     &nbsp;
     <button mat-flat-button color="accent"(click)="onReset()" type='button'>Reset</button>
 </form>
