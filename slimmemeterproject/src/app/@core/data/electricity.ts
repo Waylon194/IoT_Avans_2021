@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { IwsnBackendService } from '../../iwsn-backend/iwsn-backend.service';
 
 export interface Month {
   month: string;
@@ -20,6 +21,6 @@ export interface ElectricityChart {
 }
 
 export abstract class ElectricityData {
-  abstract getListData(): Observable<Electricity[]>;
+  constructor(public iwsnBackendService: IwsnBackendService) {}
   abstract getChartData(): Observable<ElectricityChart[]>;
 }

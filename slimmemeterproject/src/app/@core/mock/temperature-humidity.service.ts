@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { of as observableOf,  Observable } from 'rxjs';
-import { TemperatureHumidityData, Temperature } from '../data/temperature-humidity';
+import { TemperatureHumidityData } from '../data/temperature-humidity';
+import { IwsnBackendService } from '../../iwsn-backend/iwsn-backend.service';
+import { Datagram } from '../../models/Datagram';
 
 @Injectable()
 export class TemperatureHumidityService extends TemperatureHumidityData {
-  private temperatureDate: Temperature = {
-    value: 300,
-    min: 1,
-    max: 1000,
-  };
+  datagram: Datagram[] = [];
 
-  getTemperatureData(): Observable<Temperature> {
-    return observableOf(this.temperatureDate);
+  constructor(public iwsnBackendService: IwsnBackendService) {
+    super();
   }
 
-  getHumidityData(): Observable<Temperature> {
-    return observableOf();
+  getTemperatureData(): Observable<Number> {
+    this.iwsnBackendService.getMeasurements().subscribe(item => this.datagram = item);
+
+    return observableOf(this.datagram[0].Telegram.InstantaneousElectricityUsage);
   }
 }

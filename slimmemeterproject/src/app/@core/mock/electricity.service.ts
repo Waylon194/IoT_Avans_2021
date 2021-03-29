@@ -1,18 +1,10 @@
 import { Injectable } from '@angular/core';
 import { of as observableOf, Observable } from 'rxjs';
-import { Electricity, ElectricityChart, ElectricityData } from '../data/electricity';
+import { ElectricityChart, ElectricityData } from '../data/electricity';
 import { IwsnBackendService } from '../../iwsn-backend/iwsn-backend.service';
 
 @Injectable()
 export class ElectricityService extends ElectricityData {
-  private listData: Electricity[] = [
-    {
-      title: '2021',
-      months: [
-
-      ],
-    },
-  ];
 
   private chartPoints = [
     490, 490, 495, 500,
@@ -32,18 +24,15 @@ export class ElectricityService extends ElectricityData {
   chartData: ElectricityChart[];
 
   constructor(public iwsnBackendService: IwsnBackendService) {
-    super();
-    this.iwsnBackendService.getMeasurements().subscribe(item => console.log(item));
+    super(iwsnBackendService);
+
+    //this.iwsnBackendService.getMeasurements().subscribe(item => console.log(item[0]));
+
     this.chartData = this.chartPoints.map((p, index) => ({
       //Creating of labels
       label: (index % 10 === 0) ? `${Math.round(index / 10)}` : '',
       value: p,
     }));
-  }
-
-  //Not in use, but needed due to inheritance
-  getListData(): Observable<Electricity[]> {
-    return observableOf(this.listData);
   }
 
   getChartData(): Observable<ElectricityChart[]> {

@@ -36,5 +36,6 @@ import {
   ],
   bootstrap: [AppComponent],
 })
+
 export class AppModule {
 }

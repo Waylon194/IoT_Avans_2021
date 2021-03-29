@@ -11,8 +11,8 @@ import { forkJoin } from 'rxjs';
 })
 export class TemperatureComponent implements OnDestroy {
   private alive = true;
-  temperatureData: Temperature;
-  temperature: number;
+  temperatureData: Number;
+  temperature: Number;
   theme: any;
 
   constructor(private themeService: NbThemeService,
@@ -26,9 +26,9 @@ export class TemperatureComponent implements OnDestroy {
     forkJoin(
       this.temperatureHumidityService.getTemperatureData(),
     )
-    .subscribe(([temperatureData]: [Temperature]) => {
+    .subscribe(([temperatureData]: [Number]) => {
       this.temperatureData = temperatureData;
-      this.temperature = this.temperatureData.value;
+      this.temperature = this.temperatureData;
     });
   }
 
