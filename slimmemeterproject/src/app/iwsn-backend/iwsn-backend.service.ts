@@ -9,6 +9,9 @@ export class IwsnBackendService {
   constructor(private http: HttpClient) { }
 
   getMeasurements(){
-      return this.http.get<Datagram[]>("http://localhost:5000/backend-api/v1/iwsn/all");
+    //Single
+    //return this.http.get<Datagram[]>("http://localhost:5000/backend-api/v1/iwsn/latest/single/async");
+    //All
+    return this.http.get<Datagram[]>("http://localhost:5000/backend-api/v1/iwsn/latest/all/async");
   }
 }

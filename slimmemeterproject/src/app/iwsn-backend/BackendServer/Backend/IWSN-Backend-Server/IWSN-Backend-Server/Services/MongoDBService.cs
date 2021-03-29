@@ -20,7 +20,7 @@ namespace IWSN_Backend_Server.Services
     public class MongoDBService
     {
         private readonly IMongoCollection<MongoDBDatagramModel> _SensorMeasurementDBCollection;
-        
+
         // parsers and processors
         private Parser _SmartMeterParser;
         private TelegramProcessor processor;
@@ -75,6 +75,11 @@ namespace IWSN_Backend_Server.Services
         {
             // returns the user if it was found
             return Task.FromResult<IEnumerable<MongoDBDatagramModel>>(this._SensorMeasurementDBCollection.Find(sensor => true).ToList());
+        }
+
+        public IEnumerable<MongoDBDatagramModel> GetAll()
+        {
+            return this._SensorMeasurementDBCollection.Find(sensor => true).ToList();
         }
     }
 }

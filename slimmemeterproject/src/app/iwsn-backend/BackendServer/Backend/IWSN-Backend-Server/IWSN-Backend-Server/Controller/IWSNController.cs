@@ -12,7 +12,7 @@ namespace IWSN_Backend_Server.Controllers.ControllerInstances
     /// <summary>
     /// Controller class of the REST API (via HTTP communication)
     /// </summary>
-    [Route( IWSNControllerRouteSettings.IWSNMainRouteName )]
+    [Route(IWSNControllerRouteSettings.IWSNMainRouteName)]
     [ApiController]
     public class IWSNController : ControllerBase
     {
@@ -23,11 +23,11 @@ namespace IWSN_Backend_Server.Controllers.ControllerInstances
         {
             // Assign the service to the class variable
             this._SensorMeasurementService = MongoDBService.Instance;
-        }        
+        }
 
         // ROUTE: .../iwsn/all
         // get all the available users - async
-        [Route( "all" )]
+        [Route("all/async")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MongoDBDatagramModel>>> GetAllMeasurements()
         {
@@ -36,10 +36,10 @@ namespace IWSN_Backend_Server.Controllers.ControllerInstances
         }
 
         // ROUTE: .../iwsn/latest/all
-        // get lastest measurements available bases on variable => LATEST_RANGE_ALLOWED defined as private attribute
-        [Route("latest/all")]
+        // get lastest measurements available based on variable => LATEST_RANGE_ALLOWED defined as private attribute
+        [Route("latest/all/async")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MongoDBDatagramModel>>> GetLatestMeasurements()
+        public async Task<ActionResult<IEnumerable<MongoDBDatagramModel>>> GetLatestMeasurementsAsync()
         {
             var measurements = await this._SensorMeasurementService.GetAllAsync();
             var count = measurements.Count();
@@ -51,9 +51,39 @@ namespace IWSN_Backend_Server.Controllers.ControllerInstances
             return measurements.ToList().GetRange(count - MAX_LATEST_RANGE_ALLOWED, MAX_LATEST_RANGE_ALLOWED);
         }
 
+        // ROUTE: .../iwsn/latest/single
+        // get lastest measurement available based on variable => LATEST_RANGE_ALLOWED defined as private attribute
+        [Route("latest/single/async")]
+        [HttpGet]
+        public async Task<ActionResult<MongoDBDatagramModel>> GetLatestSingleMeasurementAsync()
+        {
+            var measurements = await this._SensorMeasurementService.GetAllAsync();
+            var count = measurements.Count();
+
+            if (count > 0)
+            {
+                return measurements.ToList().LastOrDefault();
+            }
+            return NoContent();
+        }
+
+        [Route("latest/single/sync")]
+        [HttpGet]
+        public ActionResult<MongoDBDatagramModel> GetLatestSingleMeasurement()
+        {
+            var measurements = this._SensorMeasurementService.GetAll();
+            var count = measurements.Count();
+
+            if (count > 0)
+            {
+                return measurements.ToList().LastOrDefault();
+            }
+            return NoContent();
+        }
+
         // ROUTE: .../iwsn/latest/solar
         // get all the available users - async
-        [Route( "lastest/solar")]
+        [Route("lastest/solar/async")]
         [HttpGet]
         public async Task<ActionResult<SObject>> GetLatestSolarMeasurement()
         {

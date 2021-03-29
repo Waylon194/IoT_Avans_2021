@@ -21,15 +21,12 @@ export class ElectricityComponent implements OnDestroy {
   themeSubscription: any;
   measurements: Datagram[] = [];
 
-  constructor(private electricityService: ElectricityData,
-              private themeService: NbThemeService, private backend_service: IwsnBackendService) {
+  constructor(private electricityService: ElectricityData, private themeService: NbThemeService, private backend_service: IwsnBackendService) {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {
         this.currentTheme = theme.name;
     });
-
-    //console.log("Data recieved: " + backend_service.getMeasurements().subscribe(measurements=> this.measurements = measurements));
 
     forkJoin(
       this.electricityService.getChartData(),

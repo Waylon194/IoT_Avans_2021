@@ -1,8 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
-import { Temperature, TemperatureHumidityData } from '../../../@core/data/temperature-humidity';
+import { TemperatureHumidityData } from '../../../@core/data/temperature-humidity';
 import { takeWhile } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
+import { IwsnBackendService } from '../../../iwsn-backend/iwsn-backend.service'; 
 
 @Component({
   selector: 'ngx-temperature',
@@ -16,7 +17,8 @@ export class TemperatureComponent implements OnDestroy {
   theme: any;
 
   constructor(private themeService: NbThemeService,
-              private temperatureHumidityService: TemperatureHumidityData) {
+    public iwsnBackendService: IwsnBackendService,
+    private temperatureHumidityService: TemperatureHumidityData) {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(config => {
@@ -31,6 +33,14 @@ export class TemperatureComponent implements OnDestroy {
       this.temperature = this.temperatureData;
     });
   }
+
+    //Refresh knop
+    onRefresh(): void {
+      console.log(
+        this.iwsnBackendService.getMeasurements().subscribe(item => item[0].Telegram.InstantaneousElectricityUsage)
+      );
+      console.log("REFRESH!");
+    }
 
   ngOnDestroy() {
     this.alive = false;

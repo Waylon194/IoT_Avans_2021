@@ -26,8 +26,6 @@ export class ElectricityService extends ElectricityData {
   constructor(public iwsnBackendService: IwsnBackendService) {
     super(iwsnBackendService);
 
-    //this.iwsnBackendService.getMeasurements().subscribe(item => console.log(item[0]));
-
     this.chartData = this.chartPoints.map((p, index) => ({
       //Creating of labels
       label: (index % 10 === 0) ? `${Math.round(index / 10)}` : '',

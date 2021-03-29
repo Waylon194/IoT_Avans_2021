@@ -3,12 +3,12 @@
     <nb-tab tabTitle="Actueel verbruik">
       <div class="slider-container">
         <ngx-temperature-dragger [(value)]="temperature"
-        [min]="temperatureData.min" [max]="temperatureData.max" [disableArcColor]="theme.arcEmpty"
+        [min]="0" [max]="1000" [disableArcColor]="theme.arcEmpty"
         [fillColors]="theme.arcFill" [thumbBg]="theme.thumbBg" [thumbBorderColor]="theme.thumbBorder">
 
           <div class="slider-value-container">
             <div class="value temperature h1">
-              {{ (temperature | ngxRound) }}
+              {{ temperature }}
             </div>
             <div class="desc">
               kWh
@@ -16,6 +16,7 @@
           </div>
         </ngx-temperature-dragger>
       </div>
+      <button nbButton mat-flat-button color="accent" (click)="onRefresh()" type='button'>Ververs alle data</button>
     </nb-tab>
   </nb-tabset>
 </nb-card>
