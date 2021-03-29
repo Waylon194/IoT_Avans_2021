@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Datagram } from '../models/Datagram';
+import { HttpClient, } from '@angular/common/http';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/internal/operators/map';
+import { SmartMeterMeasurement } from '../models/MongoDB';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +11,17 @@ import { Datagram } from '../models/Datagram';
 export class IwsnBackendService {
   constructor(private http: HttpClient) { }
 
-  getMeasurements(){
+  // latest/electric/all/async
+
+  getLatestMeasurement() : Observable<SmartMeterMeasurement>{
     //Single
-    //return this.http.get<Datagram[]>("http://localhost:5000/backend-api/v1/iwsn/latest/single/async");
-    //All
-    return this.http.get<Datagram[]>("http://localhost:5000/backend-api/v1/iwsn/latest/all/async");
+    return this.http.get<SmartMeterMeasurement>("http://localhost:5000/backend-api/v1/iwsn/latest/single/async")
+    .pipe(map((res: any) => res))
+  }
+
+  getLatestElectricityMeasurements() : Observable<number[]>{
+    //All electricity
+    return this.http.get<number[]>("http://localhost:5000/backend-api/v1/iwsn/latest/electric/all/async")
+    .pipe(map((res: any) => res))
   }
 }

@@ -1,5 +1,5 @@
 export interface SObject {
-    unit: String,
-    label: String,
-    value: Number
+    unit: string,
+    label: string,
+    value: number
 }

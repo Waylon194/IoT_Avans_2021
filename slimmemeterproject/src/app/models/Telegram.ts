@@ -1,12 +1,12 @@
 export interface Telegram{
-    PowerproductionTariff1: Number,
-    GasTimestamp: String, 
-    GasUsage: Number,
-    InstantaneousCurrent: Number,
-    InstantaneousElectricityDelivery: Number,
-    InstantaneousElectricityUsage: Number,
-    CurrentTariffType: String,
-    PowerproductionTariff2: Number,
-    PowerConsumptionTariff2: Number,
-    PowerConsumptionTariff1: Number
+    powerproductionTariff1: number,
+    gasTimestamp: string, 
+    gasUsage: number,
+    instantaneousCurrent: number,
+    instantaneousElectricityDelivery: number,
+    instantaneousElectricityUsage: number,
+    currentTariffType: string,
+    poowerproductionTariff2: number,
+    powerConsumptionTariff2: number,
+    powerConsumptionTariff1: number
 }

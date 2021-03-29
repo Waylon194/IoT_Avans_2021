@@ -12,8 +12,8 @@ export class TemperatureHumidityService extends TemperatureHumidityData {
     super();
   }
 
-  getTemperatureData(): Observable<Number> {
-    this.iwsnBackendService.getMeasurements().subscribe(item => this.datagram = item);
+  getTemperatureData(): Observable<number> {
+    // this.iwsnBackendService.getMeasurements().subscribe(item => this.datagram = item);
     //return observableOf(this.datagram[0].Telegram.InstantaneousElectricityUsage);
     return observableOf(100);
   }

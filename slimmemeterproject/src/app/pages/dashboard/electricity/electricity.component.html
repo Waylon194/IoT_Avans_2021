@@ -3,11 +3,11 @@
     <nb-card-header>
       <span class="stats">
         <span class="caption">Verbruikt:</span>
-        <span>0000 <span class="caption">kWh</span></span>
+        <span>{{totalPowerConsumption}} <span class="caption">kWh</span></span>
       </span>
       <span class="stats">
         <span class="caption">Kosten:</span>
-        <span>0.00,- <span class="caption">EUR</span></span>
+        <span>{{ totalPowerConsumption * 0.21 | currency:'EUR':'symbol-narrow':'1.2-2' }},- <span class="caption">EUR</span></span>
       </span>
     </nb-card-header>
 

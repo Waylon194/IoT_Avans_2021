@@ -51,6 +51,24 @@ namespace IWSN_Backend_Server.Controllers.ControllerInstances
             return measurements.ToList().GetRange(count - MAX_LATEST_RANGE_ALLOWED, MAX_LATEST_RANGE_ALLOWED);
         }
 
+        // ROUTE: .../iwsn/latest/electric/all/async
+        // get lastest measurements available based on variable => LATEST_RANGE_ALLOWED defined as private attribute
+        [Route("latest/electric/all/async")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<float>>> GetLatestWattageMeasurementsAsync()
+        {
+            var measurements = await this._SensorMeasurementService.GetAllAsync();
+            var count = measurements.Count();
+
+            if (count <= MAX_LATEST_RANGE_ALLOWED)
+            {
+                return measurements.Select(item => item.Datagram.Telegram.InstantaneousElectricityUsage).ToList();
+            }
+            return measurements.Select(item => item.Datagram.Telegram.InstantaneousElectricityUsage)
+                .ToList()
+                .GetRange(count - MAX_LATEST_RANGE_ALLOWED, MAX_LATEST_RANGE_ALLOWED);
+        }
+
         // ROUTE: .../iwsn/latest/single
         // get lastest measurement available based on variable => LATEST_RANGE_ALLOWED defined as private attribute
         [Route("latest/single/async")]
